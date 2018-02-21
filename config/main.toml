@@ -1,0 +1,69 @@
+db_filename = '$RESQ_DATA_PATH/resq.db'
+env_filename = '$RESQ_SCRIPTS_PATH/env/source.sh'
+huge_path = '$RESQ_HUGE_PATH'
+log_file = '$RESQ_LOG_PATH/resq.log'
+lxc_cfg = '$RESQ_CFG_PATH/lxc.conf'
+lxc_rootfs = '$RESQ_LXCROOTFS'
+plot_dir = '$RESQ_PLOT_PATH'
+melvingen_host = '$MELVINGEN_HOST'
+melvingen_port = '$MELVINGEN_PORT'
+pcm_memory_binary = '$PCM_MEMORY_BIN'
+pcm_pcie_binary = '$PCM_PCIE_BIN'
+
+hugepage_size = 2048
+#hugepage_size = 1048576
+nr_hugepages = 1024
+nr_nodes = 2
+
+duration_sec = 5
+run_socket_id = 1
+run_numbers = [0]
+utilizations = [100, 5, 98, 90, 95, 80, 85, 70, 75, 60, 65, 50, 25]
+warmup_sec = 1
+
+[io]
+nr_bufs_rx = 64
+nr_bufs_tx = 64
+
+[ddio]
+nr_ways = 2
+skip_ways = 18
+
+[cat]
+nr_ways_min = 1
+nr_ways_max = 20
+cbm_min = 1
+cbm_max = 1048575
+
+[perf_events]
+core = [
+    'cpu-cycles',
+    'instructions',
+    'cache-references',
+    'cache-misses',
+    #'dTLB-load-misses',
+    #'dTLB-store-misses',
+    #'context-switches',
+    #'intel_cqm/llc_occupancy/',
+    #'intel_cqm/local_bytes/',
+]
+
+uncore = [
+    #'uncore_imc_0/cas_count_read/',
+    #'uncore_imc_1/cas_count_read/',
+    #'uncore_imc_4/cas_count_read/',
+    #'uncore_imc_5/cas_count_read/',
+    #'uncore_imc_0/cas_count_write/',
+    #'uncore_imc_1/cas_count_write/',
+    #'uncore_imc_4/cas_count_write/',
+    #'uncore_imc_5/cas_count_write/',
+    'llc_misses.mem_read',
+    'llc_misses.mem_write',
+    'llc_misses.pcie_read',
+    'llc_misses.pcie_write',
+    'llc_misses.pcie_non_snoop_write',
+    'llc_references.pcie_read',
+    'llc_references.pcie_write',
+    'llc_references.pcie_ns_partial_write',
+    'power/energy-pkg/',
+]

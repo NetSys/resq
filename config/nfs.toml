@@ -1,0 +1,230 @@
+[bess]
+desc = 'BESS'
+desc_short = 'BESS'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n bess -- $ARGS'
+nr_ports = 1
+port_type = 'dpdk'
+use_container = false
+
+[melvingen]
+desc = 'MelvinGen'
+desc_short = 'MelvinGen'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n melvingen -r $MELVINGEN_HOST -- --lcores $MELVINGEN_CORES --socket-mem 500,500 $ARGS'
+nr_ports = 1
+port_type = 'dpdk'
+use_container = false
+
+[blind_fwd]
+desc = 'Click Forwarding'
+desc_short = 'BFW'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n blind_fwd -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+
+[dpdk_primary]
+desc = 'DPDK primary process'
+desc_short = 'PRIMARY'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n dpdk_primary -c $CORE0'
+nr_ports = 1
+port_type = 'dpdk'
+
+[firewall_250]
+desc = 'Click Firewall with 250 entries'
+desc_short = 'FW'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n p_fw250 -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+
+[firewall_1k]
+desc = 'Click Firewall with 1000 entries'
+desc_short = 'FW'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n p_fw1000 -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+
+[efficuts_32k]
+desc = 'Click EffiCuts with 32k entries'
+desc_short = 'EffiCuts'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n p_efficuts -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+
+[ip_512k]
+desc = 'Click IP processing + LPM with 512k entries'
+desc_short = 'LPM'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n p_ip512k -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+
+[ip_131k]
+desc = 'Click IP processing + LPM with 131k entries'
+desc_short = 'LPM'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n p_ip131k -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+
+[mazunat]
+desc = 'Click MazuNAT'
+desc_short = 'MazuNAT'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n mazunat -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+measure_count_min = 1
+
+[mon]
+desc = 'Click flow-level statistics'
+desc_short = 'STAT'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n p_mon -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+measure_count_min = 1
+
+[ipsec]
+desc = 'Click IPsec Tunnel'
+desc_short = 'IPsec'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n p_vpn -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+pkt_size_max = 1460
+
+[re]
+desc = 'Click RE'
+desc_short = 'RE'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n p_re40512 -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+randomize_payload = true
+
+[wanopt]
+desc = 'Click EndRE'
+desc_short = 'WANOpt'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n p_wanopt -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+pkt_size_max = 1460
+randomize_payload = true
+
+[snort]
+desc = 'Snort IDS'
+desc_short = 'Snort'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n snort -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+
+[suricata]
+desc = 'Suricata IDS'
+desc_short = 'Suricata'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n suricata -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'netmap'
+
+[syntest]
+desc = 'Click synthetic benchmark'
+desc_short = 'SYNTEST'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n syntest -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+
+[syn5]
+desc = 'Click synthetic benchmark'
+desc_short = 'SYN5'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n syn5 -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+
+[syn10]
+desc = 'Click synthetic benchmark'
+desc_short = 'SYN10'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n syn10 -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+
+[syn20]
+desc = 'Click synthetic benchmark'
+desc_short = 'SYN20'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n syn20 -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+
+[syn50]
+desc = 'Click synthetic benchmark'
+desc_short = 'SYN50'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n syn50 -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+
+[syn1000]
+desc = 'Click synthetic benchmark'
+desc_short = 'SYN1000'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n syn1000 -c $CORE0 -i $PORT0/$PCIADDR0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+
+[mlc0]
+desc = 'MLC benchmark'
+desc_short = 'MLC0'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n mlc0 -c $CORE0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+use_container = false
+
+[mlc14]
+desc = 'MLC benchmark'
+desc_short = 'MLC14'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n mlc14 -c $CORE0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+use_container = false
+
+[mlc25]
+desc = 'MLC benchmark'
+desc_short = 'MLC25'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n mlc25 -c $CORE0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+use_container = false
+
+[mlc33]
+desc = 'MLC benchmark'
+desc_short = 'MLC33'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n mlc33 -c $CORE0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+use_container = false
+
+[mlc55]
+desc = 'MLC benchmark'
+desc_short = 'MLC55'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n mlc55 -c $CORE0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+use_container = false
+
+[mlc100]
+desc = 'MLC benchmark'
+desc_short = 'MLC100'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n mlc100 -c $CORE0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+use_container = false
+
+[mlc250]
+desc = 'MLC benchmark'
+desc_short = 'MLC250'
+cmd = '$RESQ_SCRIPTS_PATH/nf_helper.sh $CMD -h $HANDLE -n mlc250 -c $CORE0'
+nr_ports = 1
+port_type = 'dpdk'
+synthetic = true
+use_container = false

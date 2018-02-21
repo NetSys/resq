@@ -1,0 +1,29 @@
+[u100k_60]
+nr_flows = 100000
+dist_spec = 'uniform'
+size = [[60, 100]]
+desc = '100k flows, min-sized, uniform'
+
+[u100k_1024]
+nr_flows = 100000
+dist_spec = 'uniform'
+size = [[1024, 100]]
+desc = '100k flows, max-sized, uniform'
+
+[u100k_1280]
+nr_flows = 100000
+dist_spec = 'uniform'
+size = [[1280, 100]]
+desc = '100k flows, max-sized, uniform'
+
+[u100k_1460]
+nr_flows = 100000
+dist_spec = 'uniform'
+size = [[1514, 100]]
+desc = '100k flows, max-sized, uniform'
+
+[u100k_1514]
+nr_flows = 100000
+dist_spec = 'uniform'
+size = [[1514, 100]]
+desc = '100k flows, max-sized, uniform'
